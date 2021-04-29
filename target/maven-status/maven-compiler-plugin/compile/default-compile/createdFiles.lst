@@ -1,0 +1,6 @@
+datamodel\entities\Usuarios.class
+datamodel\util\HibernateUtil.class
+servlet\Login.class
+datamodel\entities\Roles.class
+datamodel\dao\UsuariosDAO.class
+datamodel\dao\RolesDAO.class
