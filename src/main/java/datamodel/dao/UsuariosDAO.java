@@ -13,6 +13,10 @@ public class UsuariosDAO {
 	
 	private static Logger logger = LogManager.getLogger(Login.class);
 	
+	public static void insertUsuario(Session session, Usuarios usuario) {
+		session.save(usuario);
+	}
+	
 	/**Metodo que devuelve una lista con todos los usuarios*/
 	public static List<Usuarios> getAllUsuarios(Session session){
 		String hQuery = "FROM Usuarios";
