@@ -35,7 +35,12 @@ public class UsuariosDAO {
 									.setMaxResults(1)
 									.uniqueResult();
 		
-		logger.info("Reciupero el usuario por su id: " + usuario.toString());
+		try {
+			logger.info("Reciupero el usuario por su email: " + usuario.toString());	
+		}
+		catch(NullPointerException ex) {
+			logger.error("Usuario no encontrado");
+		}
 		return usuario;
 	}
 	
@@ -48,8 +53,13 @@ public class UsuariosDAO {
 									.setParameter("email", email)
 									.setMaxResults(1)
 									.uniqueResult();
+		try {
+			logger.info("Reciupero el usuario por su email: " + usuario.toString());	
+		}
+		catch(NullPointerException ex) {
+			logger.error("Usuario no encontrado");
+		}
 		
-		logger.info("Reciupero el usuario por su email: " + usuario.toString());
 		return usuario;
 	}
 }
