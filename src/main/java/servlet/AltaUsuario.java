@@ -1,6 +1,8 @@
 package servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,7 +16,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import datamodel.dao.RolesDAO;
-import datamodel.entities.Roles;
+import datamodel.entities.Usuarios;
 import datamodel.util.HibernateUtil;
 
 /**
@@ -51,8 +53,23 @@ public class AltaUsuario extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
+		PrintWriter out = response.getWriter();
+		
+		String p_id_rol = request.getParameter("id_rol");
+		String p_email = request.getParameter("email");
+		String p_clave = request.getParameter("clave");
+		String p_nombre = request.getParameter("nombre");
+		String p_apellido1 = request.getParameter("apellido1");
+		String p_apellido2 = request.getParameter("apellido2");
+		String p_direccion = request.getParameter("direccion");
+		String p_localidad = request.getParameter("localidad");
+		String p_provincia = request.getParameter("provincia");
+		String p_telefono = request.getParameter("telefono");
+		String p_dni = request.getParameter("dni");
+		
+		insertarUsuario(p_id_rol, p_email, p_clave, p_nombre, p_apellido1, p_apellido2, 
+				p_direccion, p_localidad, p_provincia, p_telefono, p_dni, out);
+		
 	}
 
 	/**
@@ -61,6 +78,14 @@ public class AltaUsuario extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+	}
+	
+	private void insertarUsuario(String p_id_rol, String p_email, String p_clave, String p_nombre, String p_apellido1,
+			String p_apellido2, String p_direccion, String p_localidad, String p_provincia, String p_telefono,
+			String p_dni, PrintWriter out) {
+		
+		Usuarios usuario = new Usuarios();
+		
 	}
 
 }
