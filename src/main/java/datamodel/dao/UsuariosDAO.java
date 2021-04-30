@@ -13,6 +13,10 @@ public class UsuariosDAO {
 	
 	private static Logger logger = LogManager.getLogger(Login.class);
 	
+	public static void insertUsuario(Session session, Usuarios usuario) {
+		session.save(usuario);
+	}
+	
 	/**Metodo que devuelve una lista con todos los usuarios*/
 	public static List<Usuarios> getAllUsuarios(Session session){
 		String hQuery = "FROM Usuarios";
@@ -35,7 +39,12 @@ public class UsuariosDAO {
 									.setMaxResults(1)
 									.uniqueResult();
 		
-		logger.info("Reciupero el usuario por su id: " + usuario.toString());
+		try {
+			logger.info("Recupero el usuario por su email: " + usuario.toString());	
+		}
+		catch(NullPointerException ex) {
+			logger.error("Usuario no encontrado");
+		}
 		return usuario;
 	}
 	
@@ -48,8 +57,13 @@ public class UsuariosDAO {
 									.setParameter("email", email)
 									.setMaxResults(1)
 									.uniqueResult();
+		try {
+			logger.info("Recupero el usuario por su email: " + usuario.toString());	
+		}
+		catch(NullPointerException ex) {
+			logger.error("Usuario no encontrado");
+		}
 		
-		logger.info("Reciupero el usuario por su email: " + usuario.toString());
 		return usuario;
 	}
 }
