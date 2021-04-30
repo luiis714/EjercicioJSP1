@@ -53,20 +53,19 @@ public class AltaRol extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter out = response.getWriter();
-		
-		String p_rol = request.getParameter("rol");
-		logger.info("Se va a insertar un rol con el nombre: " + p_rol);
-		//Inserto un rol a través de su nombre
-		insertaRol(p_rol, out);
+
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		PrintWriter out = response.getWriter();
+		
+		String p_rol = request.getParameter("rol");
+		logger.info("Se va a insertar un rol con el nombre: " + p_rol);
+		//Inserto un rol a través de su nombre
+		insertaRol(p_rol, out);
 	}
 	
 	private void insertaRol(String p_rol, PrintWriter out) {
