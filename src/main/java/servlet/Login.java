@@ -69,6 +69,8 @@ public class Login extends HttpServlet {
 			
 			request.getRequestDispatcher("Menu.jsp").forward(request, response);
 			
+			
+			
 			logger.info("Se ha logueado CORRECTAMENTE y muestra el MENU");
 		}
 		else {
