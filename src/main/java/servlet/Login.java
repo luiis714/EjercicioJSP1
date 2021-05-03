@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -58,7 +59,9 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
+		HttpSession session = request.getSession(true);
+		
 		//Recupero los parametros de usuario y contraseña
 		String p_user = request.getParameter("user");
 		String p_pass = request.getParameter("password");
@@ -66,6 +69,12 @@ public class Login extends HttpServlet {
 		logger.info("Voy a comprobar login con usuario: " + p_user + " clave: " + p_pass);
 		
 		if(LoginService.compruebaLogin(p_user, p_pass)) {
+			Usuarios usuario = UsuariosDAO.getUsuario(p_user);
+			
+			session.setAttribute("fechaLog", new java.util.Date());
+			session.setAttribute("usuario", usuario.getNombre() + " " + usuario.getApellido1() + " " + usuario.getApellido2());
+			session.setAttribute("rol", usuario.getIdRol());
+			
 			
 			request.getRequestDispatcher("Menu.jsp").forward(request, response);
 			

@@ -9,7 +9,7 @@
 	</head>
 	<body>
 		<div>
-			Usuario: 
+			Usuario: ${usuario} 
 		</div>
 	</body>
 </html>

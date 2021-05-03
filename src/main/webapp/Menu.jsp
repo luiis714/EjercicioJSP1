@@ -8,6 +8,7 @@
 		<title>Menu</title>
 	</head>
 	<body>
+		<jsp:include page="Header.jsp" flush="false"/>
 		<h1>MENU PRINCIPAL</h1>
 		
 		<form method="post" action="AltaUsuario.jsp">
