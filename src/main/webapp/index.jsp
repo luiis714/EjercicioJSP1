@@ -5,6 +5,6 @@
 	<head>
 	</head>
 	<body>
-		<%@ include file="formLogin.html" %>	
+		<%@ include file="Login.jsp" %>	
 	</body>
 </html>
