@@ -6,3 +6,4 @@ servlet\AltaUsuario.class
 datamodel\dao\UsuariosDAO.class
 datamodel\dao\RolesDAO.class
 datamodel\entities\Roles.class
+datamodel\controller\LoginService.class

@@ -17,6 +17,7 @@ import org.hibernate.Session;
 import datamodel.dao.UsuariosDAO;
 import datamodel.entities.Usuarios;
 import datamodel.util.HibernateUtil;
+import datamodel.controller.LoginService;
 
 /**
  * Servlet implementation class Login
@@ -42,8 +43,8 @@ public class Login extends HttpServlet {
 	 */
 	public void init(ServletConfig config) throws ServletException {
 		//Abro la session con la BBDD a través hibernate
-		session = HibernateUtil.getSessionFactory().openSession();
-		logger.info("Creo la sesión. Conexión con la BBDD. Desde MostrarDatos");
+		//session = HibernateUtil.getSessionFactory().openSession();
+		//logger.info("Creo la sesión. Conexión con la BBDD. Desde MostrarDatos");
 	}
 
 	/**
@@ -57,53 +58,23 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter out = response.getWriter();
 
 		//Recupero los parametros de usuario y contraseña
 		String p_user = request.getParameter("user");
 		String p_pass = request.getParameter("password");
 		
 		logger.info("Voy a comprobar login con usuario: " + p_user + " clave: " + p_pass);
-		compruebaLogin(p_user, p_pass, request, response);
-	}
-	
-	private void compruebaLogin(String p_user, String p_pass, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Usuarios usuario = UsuariosDAO.getUsuario(session, p_user);
 		
-		if((usuario != null) && usuario.getClave().equals(p_pass)) {
-			/*//Muestro HTML de login correcto
-			out.println("<html>");
-			out.println("<head>");
-			out.println("<title>Login correcto</title>");
-			out.println("</head>");
-			out.println("<body>");
-			out.println("<h1>BIENVENIDO " + usuario.getNombre() + "</h1>");
-			out.println("<h3>Se ha iniciado sesión de forma correcta</h3>");
-			out.println("</body>");
-			out.println("</html>");
-			*/
+		if(LoginService.compruebaLogin(p_user, p_pass)) {
 			
 			request.getRequestDispatcher("Menu.jsp").forward(request, response);
 			
-			logger.info("Se ha logueado CORRECTAMENTE");
-			logger.info(usuario.toString());
+			logger.info("Se ha logueado CORRECTAMENTE y muestra el MENU");
 		}
 		else {
-			/*//Muestro HTML de login incorrecto
-			out.println("<html>");
-			out.println("<head>");
-			out.println("<title>Login incorrecto</title>");
-			out.println("</head>");
-			out.println("<body>");
-			out.println("<h1>El usuario o la contraseña son incorrectos</h1>");
-			out.println("</body>");
-			out.println("</html>");
-			*/
 			
-			
-			logger.info("No se ha encontrado usuario o la contraseña es incorrecta");
+			logger.info("El usuario o la contraseña son incorrectas");
 		}
-		
 	}
 
 }

@@ -7,11 +7,15 @@ import org.apache.log4j.Logger;
 import org.hibernate.Session;
 
 import datamodel.entities.Usuarios;
+import datamodel.util.HibernateUtil;
 import servlet.Login;
 
 public class UsuariosDAO {
 	
 	private static Logger logger = LogManager.getLogger(Login.class);
+	
+	private static Session session;
+	
 	
 	public static void insertUsuario(Session session, Usuarios usuario) {
 		session.save(usuario);
@@ -30,7 +34,9 @@ public class UsuariosDAO {
 	}
 	
 	/**Metodo que devuelve un usuario a través de su id pasado por parametro*/
-	public static Usuarios getUsuario(Session session, int idUsuario) {
+	public static Usuarios getUsuario(int idUsuario) {
+		session = HibernateUtil.getSessionFactory().openSession();
+		
 		String hQuery = " from Usuarios u " +
                 " where u.id = :idUsuario";
 		
@@ -40,7 +46,7 @@ public class UsuariosDAO {
 									.uniqueResult();
 		
 		try {
-			logger.info("Recupero el usuario por su email: " + usuario.toString());	
+			logger.info("Recupero el usuario por su ID: " + usuario.toString());	
 		}
 		catch(NullPointerException ex) {
 			logger.error("Usuario no encontrado");
@@ -49,7 +55,9 @@ public class UsuariosDAO {
 	}
 	
 	/**Metodo que devuelve un usuario a través de su email pasado por parametro*/
-	public static Usuarios getUsuario(Session session, String email) {
+	public static Usuarios getUsuario(String email) {
+		session = HibernateUtil.getSessionFactory().openSession();
+		
 		String hQuery = " from Usuarios u " +
                 " where u.email = :email";
 		
