@@ -17,12 +17,16 @@ public class UsuariosDAO {
 	private static Session session;
 	
 	
-	public static void insertUsuario(Session session, Usuarios usuario) {
+	public static void insertUsuario(Usuarios usuario) {
+		session = HibernateUtil.getSessionFactory().openSession();
+		
 		session.save(usuario);
 	}
 	
 	/**Metodo que devuelve una lista con todos los usuarios*/
-	public static List<Usuarios> getAllUsuarios(Session session){
+	public static List<Usuarios> getAllUsuarios(){
+		session = HibernateUtil.getSessionFactory().openSession();
+		
 		String hQuery = "FROM Usuarios";
 		
 		logger.info("Recupero todos los usuarios");
