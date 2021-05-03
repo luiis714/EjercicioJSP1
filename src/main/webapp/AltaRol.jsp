@@ -8,6 +8,7 @@
 	</head>
 	<body>
 		<form method="post" action=AltaRol>
+			<jsp:include page="Header.jsp" flush="false"/>
 			<h1>Registrar Rol</h1>
 			<div>
 	            Rol: <input type="text" name="rol" />

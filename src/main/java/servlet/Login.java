@@ -72,13 +72,11 @@ public class Login extends HttpServlet {
 			Usuarios usuario = UsuariosDAO.getUsuario(p_user);
 			
 			session.setAttribute("fechaLog", new java.util.Date());
-			session.setAttribute("usuario", usuario.getNombre() + " " + usuario.getApellido1() + " " + usuario.getApellido2());
+			session.setAttribute("usuario", usuario);
 			session.setAttribute("rol", usuario.getIdRol());
 			
 			
 			request.getRequestDispatcher("Menu.jsp").forward(request, response);
-			
-			
 			
 			logger.info("Se ha logueado CORRECTAMENTE y muestra el MENU");
 		}

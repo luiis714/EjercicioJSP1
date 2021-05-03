@@ -7,6 +7,8 @@
 		<title>Listado Usuarios</title>
 	</head>
 	<body>
+		<jsp:include page="Header.jsp" flush="false"/>
+		
 		
 	</body>
 </html>
