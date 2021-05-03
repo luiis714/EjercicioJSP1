@@ -1,8 +1,8 @@
-C:\Users\Formacion\eclipse2021-workspace\EjercicioServlet2\src\main\java\datamodel\dao\UsuariosDAO.java
-C:\Users\Formacion\eclipse2021-workspace\EjercicioServlet2\src\main\java\servlet\AltaUsuario.java
-C:\Users\Formacion\eclipse2021-workspace\EjercicioServlet2\src\main\java\datamodel\entities\Roles.java
-C:\Users\Formacion\eclipse2021-workspace\EjercicioServlet2\src\main\java\datamodel\entities\Usuarios.java
-C:\Users\Formacion\eclipse2021-workspace\EjercicioServlet2\src\main\java\servlet\Login.java
-C:\Users\Formacion\eclipse2021-workspace\EjercicioServlet2\src\main\java\servlet\AltaRol.java
-C:\Users\Formacion\eclipse2021-workspace\EjercicioServlet2\src\main\java\datamodel\dao\RolesDAO.java
-C:\Users\Formacion\eclipse2021-workspace\EjercicioServlet2\src\main\java\datamodel\util\HibernateUtil.java
+C:\Users\Formacion\eclipse2021-workspace\EjercicioJSP1\src\main\java\datamodel\dao\RolesDAO.java
+C:\Users\Formacion\eclipse2021-workspace\EjercicioJSP1\src\main\java\datamodel\dao\UsuariosDAO.java
+C:\Users\Formacion\eclipse2021-workspace\EjercicioJSP1\src\main\java\servlet\AltaUsuario.java
+C:\Users\Formacion\eclipse2021-workspace\EjercicioJSP1\src\main\java\servlet\AltaRol.java
+C:\Users\Formacion\eclipse2021-workspace\EjercicioJSP1\src\main\java\datamodel\util\HibernateUtil.java
+C:\Users\Formacion\eclipse2021-workspace\EjercicioJSP1\src\main\java\servlet\Login.java
+C:\Users\Formacion\eclipse2021-workspace\EjercicioJSP1\src\main\java\datamodel\entities\Roles.java
+C:\Users\Formacion\eclipse2021-workspace\EjercicioJSP1\src\main\java\datamodel\entities\Usuarios.java

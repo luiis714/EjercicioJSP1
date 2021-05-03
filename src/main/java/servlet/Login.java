@@ -50,6 +50,13 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
 
 		//Recupero los parametros de usuario y contraseña
@@ -57,22 +64,14 @@ public class Login extends HttpServlet {
 		String p_pass = request.getParameter("password");
 		
 		logger.info("Voy a comprobar login con usuario: " + p_user + " clave: " + p_pass);
-		compruebaLogin(p_user, p_pass, out);
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		compruebaLogin(p_user, p_pass, request, response);
 	}
 	
-	private void compruebaLogin(String p_user, String p_pass, PrintWriter out) {
+	private void compruebaLogin(String p_user, String p_pass, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Usuarios usuario = UsuariosDAO.getUsuario(session, p_user);
 		
 		if((usuario != null) && usuario.getClave().equals(p_pass)) {
-			//Muestro HTML de login correcto
+			/*//Muestro HTML de login correcto
 			out.println("<html>");
 			out.println("<head>");
 			out.println("<title>Login correcto</title>");
@@ -82,12 +81,15 @@ public class Login extends HttpServlet {
 			out.println("<h3>Se ha iniciado sesión de forma correcta</h3>");
 			out.println("</body>");
 			out.println("</html>");
+			*/
+			
+			request.getRequestDispatcher("Menu.jsp").forward(request, response);
 			
 			logger.info("Se ha logueado CORRECTAMENTE");
 			logger.info(usuario.toString());
 		}
 		else {
-			//Muestro HTML de login incorrecto
+			/*//Muestro HTML de login incorrecto
 			out.println("<html>");
 			out.println("<head>");
 			out.println("<title>Login incorrecto</title>");
@@ -96,6 +98,8 @@ public class Login extends HttpServlet {
 			out.println("<h1>El usuario o la contraseña son incorrectos</h1>");
 			out.println("</body>");
 			out.println("</html>");
+			*/
+			
 			
 			logger.info("No se ha encontrado usuario o la contraseña es incorrecta");
 		}
