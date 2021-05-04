@@ -1,5 +1,8 @@
 datamodel\entities\Usuarios.class
+datamodel\entities\Categorias.class
 datamodel\util\HibernateUtil.class
+datamodel\dao\CategoriasDAO.class
+datamodel\entities\Productos.class
 servlet\ListadoUsuarios.class
 servlet\Login.class
 servlet\AltaRol.class
@@ -7,5 +10,6 @@ servlet\AltaUsuario.class
 servlet\ListadoRoles.class
 datamodel\dao\UsuariosDAO.class
 datamodel\dao\RolesDAO.class
+datamodel\dao\ProductosDAO.class
 datamodel\entities\Roles.class
 datamodel\controller\LoginService.class

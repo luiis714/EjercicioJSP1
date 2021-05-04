@@ -15,9 +15,11 @@
 			<li><a method="post" href="<%=request.getContextPath()%>/AltaUsuario.jsp">Alta usuario</a></li>
 			<li><a method="post" href="<%=request.getContextPath()%>/ListadoUsuarios">Visualizar usuarios</a></li>
 			<li><a method="post" href="<%=request.getContextPath()%>/AltaRol.jsp">Alta rol</a></li>
-			<li><a method="post" href="<%=request.getContextPath()%>/ListadoRoles">Visualizar rol</a></li>
-			<li></li>
-			<li></li>
+			<li><a method="post" href="<%=request.getContextPath()%>/ListadoRoles">Visualizar roles</a></li>
+			<li><a method="post" href="<%=request.getContextPath()%>/AltaCategoria.jsp">Alta categoría</a></li>
+			<li><a method="post" href="<%=request.getContextPath()%>/ListadoCategorias">Visualizar categorías</a></li>
+			<li><a method="post" href="<%=request.getContextPath()%>/AltaProducto.jsp">Alta producto</a></li>
+			<li><a method="post" href="<%=request.getContextPath()%>/ListadoProductos">Visualizar productos</a></li>
 		</ul>
 		
 	</body>

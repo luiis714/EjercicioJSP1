@@ -13,7 +13,9 @@
 			<div>Fecha y hora inicio: ${sessionScope.fechaLog}
 				<div id="btns" align="right"> 
 					<button href=""> << Volver</button>
-					<button href="Login"> X Cerrar sesión</button>
+					<ul>
+						<li><a method="post" href="<%=request.getContextPath()%>/Login">X Cerrar sesión</a></li>
+					</ul>
 				</div>
 			<div>
 			<div>Rol: ${sessionScope.rol.getRol()}</div>

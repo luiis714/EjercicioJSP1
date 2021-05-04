@@ -11,6 +11,14 @@
     	<link rel="stylesheet" href="css/login-bootstrap.css">
 	</head>
 	<body>
+		<%
+			//Se pone a null todos los datos de las sesión
+			if(session != null){
+				session = request.getSession();
+				session.invalidate();
+			}
+		%>
+		
 		<div id="main-wrapper" class="container">
 			<div class="row justify-content-center">
 				<div class="col-xl-10">
