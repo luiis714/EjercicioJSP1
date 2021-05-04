@@ -11,8 +11,7 @@
 	<body>
 		<jsp:include page="Header.jsp" flush="false"/>
 			<%
-				List<Usuarios> lista = UsuariosDAO.getAllUsuarios();
-				pageContext.setAttribute("listaUsuarios", lista);
+				ArrayList <Usuarios> lista = (ArrayList<Usuarios>)request.getAttribute("listaUsuarios");
 			%>
 		
 		<h1>Listado Usuarios</h1>
@@ -31,8 +30,29 @@
 				    	<th>Teléfono</th>
 				    	<th>DNI</th>
 			   		 </tr>
-				
-			    <c:forEach items="${pageScope.listaUsuarios}" var="usuario" varStatus="status" begin="0" end="${pageScope.listaUsuarios.size() - 1}">
+					<%
+					for(int i = 0; i < lista.size(); i++){
+					%>	
+						<tr>
+							<td><%=lista.get(i).getId() %></td>
+			                <td><%=lista.get(i).getIdRol() %></td>
+			                <td><%=lista.get(i).getEmail() %></td>
+			                <td><%=lista.get(i).getClave()%></td>
+			                <td><%=lista.get(i).getNombre() %></td>
+			                <td><%=lista.get(i).getApellido1() %></td>
+			                <td><%=lista.get(i).getApellido2() %></td>
+			                <td><%=lista.get(i).getDireccion() %></td>
+			                <td><%=lista.get(i).getLocalidad() %></td>
+			                <td><%=lista.get(i).getProvincia() %></td>
+			                <td><%=lista.get(i).getTelefono() %></td>
+			                <td><%=lista.get(i).getDni() %></td>
+							
+						</tr>
+					<%
+					}
+					%>					
+					
+			  <!-- <c:forEach items="${pageScope.listaUsuarios}" var="usuario" varStatus="status" begin="0" end="${pageScope.listaUsuarios.size() - 1}">
 			        <tr>
 			        	<td><c:out value="${usuario.id}" /></td>
 		                <td><c:out value="${usuario.idRol}" /></td>
@@ -48,6 +68,7 @@
 		                <td><c:out value="${usuario.dni}" /></td>          
 			        </tr>
 			    </c:forEach>
+			     -->  
 			</table>
 	</body>
 </html>

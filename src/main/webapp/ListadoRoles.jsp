@@ -9,6 +9,10 @@
 	</head>
 	<body>
 		<jsp:include page="Header.jsp" flush="false"/>
+		<%
+				ArrayList<Roles> lista = (ArrayList<Roles>)request.getAttribute("listaRoles");
+		%>
+		
 		<h1>Listado Roles</h1>
 		
 
@@ -19,12 +23,16 @@
 				    	<th>Nombre</th>
 			   		 </tr>
 				
-			    <c:forEach items="${sessionScope.listaRoles}" var="rol" varStatus="status" begin="0" end="${sessionScope.rolesList.size() - 1}">
-			        <tr>
-			        	
-			                      
-			        </tr>
-			    </c:forEach>
+			    <%
+					for(int i = 0; i < lista.size(); i++){
+					%>	
+						<tr>
+							<td><%=lista.get(i).getId() %></td>
+			                <td><%=lista.get(i).getRol() %></td>
+						</tr>
+					<%
+					}
+					%>	
 			</table>
 		</form>
 	</body>

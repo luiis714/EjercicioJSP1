@@ -1,6 +1,9 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,6 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import datamodel.dao.RolesDAO;
+import datamodel.dao.UsuariosDAO;
+import datamodel.entities.Roles;
+import datamodel.entities.Usuarios;
 
 /**
  * Servlet implementation class ListadoRoles
@@ -37,9 +43,8 @@ public class ListadoRoles extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession(true);
-		
-		session.setAttribute("listaRoles", RolesDAO.getAllRoles());
+		List<Roles> listaRoles = RolesDAO.getAllRoles();
+		request.setAttribute("listaRoles", listaRoles);
 		
 		request.getRequestDispatcher("ListadoRoles.jsp").forward(request, response);
 	}

@@ -17,10 +17,10 @@
 		<form method="post" action="AltaRol.jsp">
 			<input type="submit" name="alta_rol" value="Alta rol"/>
 		</form>
-		<form method="post" action="ListadoUsuarios.jsp">
+		<form method="post" action="ListadoUsuarios">
 			<input type="submit" name="listado_usuarios" value="Listado usuarios"/>
 		</form>
-		<form method="post" action="ListadoRoles.jsp">
+		<form method="post" action="ListadoRoles">
 			<input type="submit" name="listado_roles" value="Listado roles"/>
 		</form>
 		
