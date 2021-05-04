@@ -44,9 +44,9 @@ public class AltaRol extends HttpServlet {
 	 */
 	public void init(ServletConfig config) throws ServletException {
 		//Abro la session con la BBDD a través hibernate
-		session = HibernateUtil.getSessionFactory().openSession();
+		/*session = HibernateUtil.getSessionFactory().openSession();
 		tx = session.beginTransaction();
-		logger.info("Creo la sesión. Conexión con la BBDD. Desde MostrarDatos");
+		logger.info("Creo la sesión. Conexión con la BBDD. Desde MostrarDatos");*/
 	}
 
 	/**
@@ -71,7 +71,7 @@ public class AltaRol extends HttpServlet {
 	private void insertaRol(String p_rol, PrintWriter out) {
 		Roles rol = new Roles(p_rol);
 		
-		RolesDAO.insertRol(session, rol);
+		RolesDAO.insertRol(rol);
 		
 		tx.commit();//Hago un commit de la BBDD
 		logger.info("Rol insertado correctamente " + rol.toString());

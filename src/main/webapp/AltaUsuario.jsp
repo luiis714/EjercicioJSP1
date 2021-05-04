@@ -7,6 +7,7 @@
 		<title>Alta Usuario</title>
 	</head>
 	<body>
+		<jsp:include page="Header.jsp" flush="false"/>
 	    <form method="post" action="AltaUsuario">
 	        <h1>Registrar Usuario</h1>
 			<div>

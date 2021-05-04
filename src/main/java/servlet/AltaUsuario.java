@@ -92,7 +92,7 @@ public class AltaUsuario extends HttpServlet {
 		try {
 			usuario = new Usuarios(Integer.parseInt(p_id_rol), p_email, p_clave, p_nombre, p_apellido1, p_apellido2, p_direccion, p_localidad, p_provincia, p_telefono, p_dni);
 			
-			UsuariosDAO.insertUsuario(session, usuario);
+			UsuariosDAO.insertUsuario(usuario);
 			
 			tx.commit();//Hago un commit en la BBDD
 			logger.info("Usuario insertado correctamente " + usuario.toString());

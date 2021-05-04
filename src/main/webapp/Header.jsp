@@ -9,7 +9,10 @@
 	</head>
 	<body>
 		<div>
-			Usuario: ${usuario} 
+			Usuario: ${sessionScope.usuario.getNombre()} 
+			${sessionScope.usuario.getApellido1()} 
+			${sessionScope.usuario.getApellido1()}      
+			<div>Inicio de sesión: ${sessionScope.fechaLog}<div>
 		</div>
 	</body>
 </html>
