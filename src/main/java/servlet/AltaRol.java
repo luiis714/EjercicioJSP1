@@ -43,10 +43,10 @@ public class AltaRol extends HttpServlet {
 	 * @see Servlet#init(ServletConfig)
 	 */
 	public void init(ServletConfig config) throws ServletException {
-		//Abro la session con la BBDD a través hibernate
-		/*session = HibernateUtil.getSessionFactory().openSession();
+		//Abro la session con la BBDD a travï¿½s hibernate
+		session = HibernateUtil.getSessionFactory().openSession();
 		tx = session.beginTransaction();
-		logger.info("Creo la sesión. Conexión con la BBDD. Desde MostrarDatos");*/
+		logger.info("Creo la sesin. ConexiÃ³n con la BBDD. Desde MostrarDatos");
 	}
 
 	/**
@@ -64,7 +64,7 @@ public class AltaRol extends HttpServlet {
 		
 		String p_rol = request.getParameter("rol");
 		logger.info("Se va a insertar un rol con el nombre: " + p_rol);
-		//Inserto un rol a través de su nombre
+		//Inserto un rol a travï¿½s de su nombre
 		insertaRol(p_rol, out);
 	}
 	
@@ -76,14 +76,14 @@ public class AltaRol extends HttpServlet {
 		tx.commit();//Hago un commit de la BBDD
 		logger.info("Rol insertado correctamente " + rol.toString());
 		
-		//Muestro un HTML con la información
+		//Muestro un HTML con la informaciï¿½n
 		muestraInfo(rol, out);
 	}
 
 	private void muestraInfo(Roles rol, PrintWriter out) {
 		out.println("<html>");
 		out.println("<head>");
-		out.println("<title>Inserción correcta</title>");
+		out.println("<title>Inserciï¿½n correcta</title>");
 		out.println("</head>");
 		out.println("<body>");
 		out.println("<h1>ROL INSERTADO CORRECTAMENTE</h1>");
@@ -91,6 +91,6 @@ public class AltaRol extends HttpServlet {
 		out.println("</body>");
 		out.println("</html>");
 		
-		logger.info("Se ha mostrado información de una inserción correcta al usuario");
+		logger.info("Se ha mostrado informaciï¿½n de una inserciï¿½n correcta al usuario");
 	}
 }

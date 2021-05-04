@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.time.*, java.time.format.*" %>
+<%@page import="datamodel.entities.*, datamodel.dao.*"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -8,11 +9,12 @@
 		<title></title>
 	</head>
 	<body>
-		<div>
-			Usuario: ${sessionScope.usuario.getNombre()} 
+		<div id="info-usuario">
+			<div>Rol: ${sessionScope.rol.getRol()}</div>
+			<div>Usuario: ${sessionScope.usuario.getNombre()} 
 			${sessionScope.usuario.getApellido1()} 
-			${sessionScope.usuario.getApellido1()}      
-			<div>Inicio de sesión: ${sessionScope.fechaLog}<div>
+			${sessionScope.usuario.getApellido2()}</div>      
+			<div>Fecha y hora inicio: ${sessionScope.fechaLog}<div>
 		</div>
 	</body>
 </html>

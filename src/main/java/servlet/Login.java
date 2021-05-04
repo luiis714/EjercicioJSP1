@@ -15,6 +15,7 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 
+import datamodel.dao.RolesDAO;
 import datamodel.dao.UsuariosDAO;
 import datamodel.entities.Usuarios;
 import datamodel.util.HibernateUtil;
@@ -73,7 +74,7 @@ public class Login extends HttpServlet {
 			
 			session.setAttribute("fechaLog", new java.util.Date());
 			session.setAttribute("usuario", usuario);
-			session.setAttribute("rol", usuario.getIdRol());
+			session.setAttribute("rol", RolesDAO.getRol(usuario.getIdRol()));
 			
 			
 			request.getRequestDispatcher("Menu.jsp").forward(request, response);

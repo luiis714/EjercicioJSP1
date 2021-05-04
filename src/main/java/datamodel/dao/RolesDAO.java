@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import datamodel.entities.Roles;
 import datamodel.entities.Usuarios;
@@ -32,7 +33,7 @@ public class RolesDAO {
 	}
 	
 	/***/
-	public static Roles getRol(String idRol) {
+	public static Roles getRol(int idRol) {
 		session = HibernateUtil.getSessionFactory().openSession();
 		
 		String hQuery = " from Roles r " +
@@ -55,8 +56,15 @@ public class RolesDAO {
 	
 	/***/
 	public static void insertRol(Roles rol) {
+		
 		session = HibernateUtil.getSessionFactory().openSession();
+		Transaction tx = session.beginTransaction();
+
 		session.save(rol);
+		tx.commit();
+		logger.info("Rol insertado y commiteado " + rol.toString());
+		
+		session.close();
 	}
 	
 }
