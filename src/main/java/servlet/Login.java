@@ -30,8 +30,6 @@ public class Login extends HttpServlet {
        
 	private static Logger logger = LogManager.getLogger(Login.class);
 	
-	private Session session;
-	
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -44,9 +42,9 @@ public class Login extends HttpServlet {
 	 * @see Servlet#init(ServletConfig)
 	 */
 	public void init(ServletConfig config) throws ServletException {
-		//Abro la session con la BBDD a través hibernate
+		//Abro la session con la BBDD a travï¿½s hibernate
 		//session = HibernateUtil.getSessionFactory().openSession();
-		//logger.info("Creo la sesión. Conexión con la BBDD. Desde MostrarDatos");
+		//logger.info("Creo la sesiï¿½n. Conexiï¿½n con la BBDD. Desde MostrarDatos");
 	}
 
 	/**
@@ -61,9 +59,11 @@ public class Login extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
+		
 		HttpSession session = request.getSession(true);
 		
-		//Recupero los parametros de usuario y contraseña
+		//Recupero los parametros de usuario y contraseï¿½a
 		String p_user = request.getParameter("user");
 		String p_pass = request.getParameter("password");
 		
@@ -83,7 +83,7 @@ public class Login extends HttpServlet {
 		}
 		else {
 			
-			logger.info("El usuario o la contraseña son incorrectas");
+			logger.info("El usuario o la contraseï¿½a son incorrectas");
 		}
 	}
 

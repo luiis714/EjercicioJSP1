@@ -11,18 +11,14 @@
 		<jsp:include page="Header.jsp" flush="false"/>
 		<h1>MENU PRINCIPAL</h1>
 		
-		<form method="post" action="AltaUsuario.jsp">
-			<input type="submit" name="alta_usuario" value="Alta usuario"/>
-		</form>
-		<form method="post" action="AltaRol.jsp">
-			<input type="submit" name="alta_rol" value="Alta rol"/>
-		</form>
-		<form method="post" action="ListadoUsuarios">
-			<input type="submit" name="listado_usuarios" value="Listado usuarios"/>
-		</form>
-		<form method="post" action="ListadoRoles">
-			<input type="submit" name="listado_roles" value="Listado roles"/>
-		</form>
+		<ul>
+			<li><a method="post" href="<%=request.getContextPath()%>/AltaUsuario.jsp">Alta usuario</a></li>
+			<li><a method="post" href="<%=request.getContextPath()%>/ListadoUsuarios">Visualizar usuarios</a></li>
+			<li><a method="post" href="<%=request.getContextPath()%>/AltaRol.jsp">Alta rol</a></li>
+			<li><a method="post" href="<%=request.getContextPath()%>/ListadoRoles">Visualizar rol</a></li>
+			<li></li>
+			<li></li>
+		</ul>
 		
 	</body>
 </html>

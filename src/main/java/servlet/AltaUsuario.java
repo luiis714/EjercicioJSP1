@@ -30,9 +30,6 @@ public class AltaUsuario extends HttpServlet {
        
 	private static Logger logger = LogManager.getLogger(Login.class);
 	
-	private Session session;
-	private Transaction tx;
-	
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -45,10 +42,6 @@ public class AltaUsuario extends HttpServlet {
 	 * @see Servlet#init(ServletConfig)
 	 */
 	public void init(ServletConfig config) throws ServletException {
-		//Abro la session con la BBDD a través hibernate
-		session = HibernateUtil.getSessionFactory().openSession();
-		tx = session.beginTransaction();
-		logger.info("Creo la sesión. Conexión con la BBDD. Desde MostrarDatos");
 	}
 
 	/**
@@ -93,8 +86,6 @@ public class AltaUsuario extends HttpServlet {
 			usuario = new Usuarios(Integer.parseInt(p_id_rol), p_email, p_clave, p_nombre, p_apellido1, p_apellido2, p_direccion, p_localidad, p_provincia, p_telefono, p_dni);
 			
 			UsuariosDAO.insertUsuario(usuario);
-			
-			tx.commit();//Hago un commit en la BBDD
 			logger.info("Usuario insertado correctamente " + usuario.toString());
 			
 			muestraInfo(usuario, out);
@@ -109,11 +100,11 @@ public class AltaUsuario extends HttpServlet {
 	private void muestraError(PrintWriter out) {
 		out.println("<html>");
 		out.println("<head>");
-		out.println("<title>Error inserción</title>");
+		out.println("<title>Error inserciï¿½n</title>");
 		out.println("</head>");
 		out.println("<body>");
 		out.println("<h1>ERROR. No se ha podido insertar el usuario por un error inserperado</h1>");
-		out.println("</br>Es mi primerito día");
+		out.println("</br>Es mi primerito dï¿½a");
 		out.println("</body>");
 		out.println("</html>");
 		
@@ -121,11 +112,11 @@ public class AltaUsuario extends HttpServlet {
 		
 	}
 	
-	/**Muestra una página de información sobre la inserción correcta*/
+	/**Muestra una pï¿½gina de informaciï¿½n sobre la inserciï¿½n correcta*/
 	private void muestraInfo(Usuarios usuario, PrintWriter out) {
 		out.println("<html>");
 		out.println("<head>");
-		out.println("<title>Inserción correcta</title>");
+		out.println("<title>Inserciï¿½n correcta</title>");
 		out.println("</head>");
 		out.println("<body>");
 		out.println("<h1>USUARIO INSERTADO CORRECTAMENTE</h1>");
@@ -136,7 +127,7 @@ public class AltaUsuario extends HttpServlet {
 		out.println("</body>");
 		out.println("</html>");
 		
-		logger.info("Se ha mostrado información de una inserción correcta al usuario");
+		logger.info("Se ha mostrado informaciï¿½n de una inserciï¿½n correcta al usuario");
 	}
 
 }
