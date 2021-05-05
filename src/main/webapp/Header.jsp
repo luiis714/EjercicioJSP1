@@ -14,7 +14,7 @@
 				<div id="btns" align="right"> 
 					<button href=""> << Volver</button>
 					<ul>
-						<li><a method="post" href="<%=request.getContextPath()%>/Login">X Cerrar sesión</a></li>
+						<li><a method="post" href="<%=request.getContextPath()%>/Login.jsp">X Cerrar sesión</a></li>
 					</ul>
 				</div>
 			<div>
