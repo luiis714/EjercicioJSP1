@@ -13,7 +13,8 @@
 			<div>Fecha y hora inicio: ${sessionScope.fechaLog}
 				<div id="btns" align="right"> 
 					<ul>
-						<li><a method="post" href="<%=request.getContextPath()%>/Menu.jsp"> << Volver</a> </li>
+						
+						<li><a method="post" href="<%=request.getContextPath()%>/Menu${sessionScope.rol.getRol()}.jsp"> << Volver</a> </li>
 						<li><a method="post" href="<%=request.getContextPath()%>/Login.jsp">X Cerrar sesión</a></li>
 					</ul>
 				</div>

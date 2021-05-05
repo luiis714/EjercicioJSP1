@@ -17,6 +17,7 @@ import org.hibernate.Session;
 
 import datamodel.dao.RolesDAO;
 import datamodel.dao.UsuariosDAO;
+import datamodel.entities.Roles;
 import datamodel.entities.Usuarios;
 import datamodel.util.HibernateUtil;
 import datamodel.controller.LoginService;
@@ -69,15 +70,29 @@ public class Login extends HttpServlet {
 		
 		if(LoginService.compruebaLogin(p_user, p_pass)) {
 			Usuarios usuario = UsuariosDAO.getUsuario(p_user);
-			
+			Roles rol = RolesDAO.getRol(usuario.getIdRol());
 			session.setAttribute("fechaLog", new java.util.Date());
 			session.setAttribute("usuario", usuario);
-			session.setAttribute("rol", RolesDAO.getRol(usuario.getIdRol()));
+			session.setAttribute("rol", rol);
 			
+			switch(rol.getRol()) {
+				case "Admin":
+					request.getRequestDispatcher("MenuAdmin.jsp").forward(request, response);
+					logger.info("Se ha logueado CORRECTAMENTE y muestra el MENU ADMIN");
+					break;
+				case "Empleado":
+					request.getRequestDispatcher("MenuEmpleado.jsp").forward(request, response);
+					logger.info("Se ha logueado CORRECTAMENTE y muestra el MENU EMPLEADO");
+					break;
+				case "Cliente":
+					request.getRequestDispatcher("MenuCliente.jsp").forward(request, response);
+					logger.info("Se ha logueado CORRECTAMENTE y muestra el MENU CLIENTE");
+					break;
+				default:
+					request.getRequestDispatcher("MenuNada.jsp").forward(request, response);
+					logger.info("Se ha logueado CORRECTAMENTE y NO muestra el MENU");
+			}
 			
-			request.getRequestDispatcher("Menu.jsp").forward(request, response);
-			
-			logger.info("Se ha logueado CORRECTAMENTE y muestra el MENU");
 		}
 		else {
 			
